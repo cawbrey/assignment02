@@ -34,7 +34,7 @@ export default function App() {
             </nav>
 
 
-            <ShoppingCartContext.Provider value={{cart, changeCart}}>
+            <ShoppingCartContext.Provider value={{cart, changeCart, changePage}}>
                 {activePage}
             </ShoppingCartContext.Provider>
 

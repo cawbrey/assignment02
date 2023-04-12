@@ -2,6 +2,8 @@ import {Row} from "react-bootstrap";
 import {useContext} from "react";
 import {ShoppingCartContext} from "../context/ShoppingCartContext";
 import CartItem from "../components/CartItem";
+import PaymentInformation from "../components/PaymentInformation";
+import Confirmation from "../pages/Confirmation";
 
 export default function Cart() {
     const {cart} = useContext(ShoppingCartContext);
@@ -25,8 +27,8 @@ export default function Cart() {
         }).map((item) => (CartItem(item, (newQuantity) => setQuantity(item, newQuantity))))
     }
 
-    function getTotalCost() {
-        let total = 0;
+    function getCost() {
+        let total = 0.00;
 
         cart.filter((item) => {
             return item.quantity !== 0
@@ -34,14 +36,23 @@ export default function Cart() {
 
         return total.toFixed(2);
     }
+    function getTotalCost(){
+        return (getCost() * 1.07).toFixed(2);
+    }
 
     return (
         <>
             <Row className="p-5">
                 {getCartItems()}
                 <span className={"p-2"}>
-                    <h2 align={"right"}> Total: ${getTotalCost()}</h2>
+                    <h4 align={"right"}> Cost: {getCost()}</h4>
+                    <br/>
+                    <h3 align={"right"}> Total(Cost + Tax): ${getTotalCost()}</h3>
                 </span>
+            </Row>
+
+            <Row className="p-5">
+                <PaymentInformation/>
             </Row>
         </>
     );
