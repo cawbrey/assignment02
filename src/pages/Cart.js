@@ -1,5 +1,4 @@
 import {Row} from "react-bootstrap";
-import StoreItem from "../components/StoreItem";
 import {useContext} from "react";
 import {ShoppingCartContext} from "../context/ShoppingCartContext";
 import CartItem from "../components/CartItem";
@@ -18,11 +17,11 @@ export default function Cart(){
         });
 
         changeCart(updatedCart);
-    };
+    }
 
 
     function getQuantitiesItems(){
-        return cart.filter((item) => {return item.quantity != 0}).map((item) => (CartItem(item, (newQuantity) => setQuantity(item, newQuantity))))
+        return cart.filter((item) => {return item.quantity !== 0}).map((item) => (CartItem(item, (newQuantity) => setQuantity(item, newQuantity))))
     }
 
     return (

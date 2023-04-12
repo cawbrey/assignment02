@@ -3,7 +3,6 @@ import Browse from "./Browse";
 import Cart from "./Cart";
 import {ShoppingCartContext} from "../context/ShoppingCartContext";
 import products from "../data/products.json";
-import CartItem from "../components/CartItem";
 
 export default function App() {
     let [activePage, changePage] = useState(<Browse />);
@@ -13,7 +12,7 @@ export default function App() {
 
     function getNumInCart(){
         let quantity = 0;
-        cart.filter((item) => {return item.quantity != 0}).map((item) => (quantity += item.quantity));
+        cart.filter((item) => {return item.quantity !== 0}).map((item) => (quantity += item.quantity));
         return quantity;
     }
 
@@ -23,8 +22,8 @@ export default function App() {
     <>
         <nav className="nav">
             <ul>
-                    <button onClick={() => {changePage(<Browse />)}} type="button" class="btn" >Browse</button>
-                    <button onClick={() => {changePage(<Cart />)}} type="button" class="btn"><img src="./shoppingCart.svg" alt="shopping cart"/> {getNumInCart()}</button>
+                    <button onClick={() => {changePage(<Browse />)}} type="button" className="btn" >Browse</button>
+                    <button onClick={() => {changePage(<Cart />)}} type="button" className="btn"><img src="./shoppingCart.svg" alt="shopping cart"/> {getNumInCart()}</button>
             </ul>
         </nav>
 
