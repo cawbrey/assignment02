@@ -1,10 +1,10 @@
 import {Button, Card} from "react-bootstrap";
 
-export default function StoreItem(item, setQuantity){
+export default function StoreItem(item, setQuantity) {
 
-    const { id, title, price, description, category, image, rating, quantity} = item;
-    
-    return(
+    const {title, price, description, image, quantity} = item;
+
+    return (
         <div className="d-grid col-md-6 col-lg-5 col-xl-3 p-1">
             <Card className="shadow-sm rounded-3">
                 <Card.Img src={image} variant={"top"} height="200px" style={{objectFit: "contain"}}></Card.Img>
@@ -18,9 +18,10 @@ export default function StoreItem(item, setQuantity){
                     <div className="d-flex justify-content-between align-items-center">
                         <small className="fw-bolder">${price}</small>
                         <div className="mt-auto justify-content-end">
-                            { quantity !== 0 ?
+                            {quantity !== 0 ?
                                 (<div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
-                                    <div className="d-flex align-items-center justify-content-center" style={{gap: ".5rem"}}>
+                                    <div className="d-flex align-items-center justify-content-center"
+                                         style={{gap: ".5rem"}}>
                                         <Button onClick={() => {
                                             setQuantity(quantity - 1);
                                         }}> - </Button>
@@ -29,7 +30,7 @@ export default function StoreItem(item, setQuantity){
                                             setQuantity(quantity + 1);
                                         }}> + </Button>
                                     </div>
-                                </div>):
+                                </div>) :
                                 (<Button onClick={() => {
                                     setQuantity(1);
                                 }}>Add to Cart</Button>)

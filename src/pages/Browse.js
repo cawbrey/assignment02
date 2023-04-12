@@ -21,8 +21,9 @@ export default function Browse() {
 
     return (
         <>
-            <div className="input-group rounded pt-5 px-5" >
-                <input type="search" className="form-control rounded" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)}/>
+            <div className="input-group rounded pt-5 px-5">
+                <input type="search" className="form-control rounded" placeholder="Search" value={query}
+                       onChange={(e) => setQuery(e.target.value)}/>
                 <span className="input-group-text border-0">
                     <img src="./search.svg" alt=""/>
                 </span>
@@ -30,7 +31,7 @@ export default function Browse() {
 
             <Row sm={1} md={2} lg={3} xxl={4} className="p-5">
                 {cart.filter(item => {
-                    if(query === ""){
+                    if (query === "") {
                         return true;
                     }
                     return item.title.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase());

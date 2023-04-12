@@ -2,7 +2,7 @@ import {Button, Card} from "react-bootstrap";
 
 export default function CartItem(item, setQuantity) {
 
-    const {id, title, price, description, category, image, rating, quantity} = item;
+    const {price, image, quantity} = item;
 
     return (
         <div className="d-table-row p-1">
@@ -11,12 +11,8 @@ export default function CartItem(item, setQuantity) {
                     <div className="d-flex justify-content-between">
                         <Card.Img src={image} variant={"left"} height="100px"></Card.Img>
                         <Card.Title>{item.title}</Card.Title>
-
-
-
-
                         <div className="mt-auto justify-content-end">
-                            <h3>${quantity * price}</h3>
+                            <h3>${(quantity * price).toFixed(2)}</h3>
 
                             <div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
                                 <div className="d-flex align-items-center justify-content-center"
@@ -31,8 +27,6 @@ export default function CartItem(item, setQuantity) {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </Card.Body>
             </Card>
