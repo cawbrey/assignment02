@@ -7,7 +7,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav{
+  background-color: steelblue;
+  color: floralwhite;
+  display: flex;
+  justify-content: right;
+  align-items: stretch;
 }
+
+.nav ul{
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  height: 100%;
+}
+
+.nav ul button{
+  color: floralwhite;
+  font-size: 1.5rem;
+}
+
+.nav ul button img{
+  height: 2rem;
+}
+
