@@ -21,14 +21,18 @@ export default function StoreItem(item, setQuantity){
                             { quantity !== 0 ?
                                 (<div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
                                     <div className="d-flex align-items-center justify-content-center" style={{gap: ".5rem"}}>
-                                        <Button> - </Button>
+                                        <Button onClick={() => {
+                                            setQuantity(quantity - 1);
+                                        }}> - </Button>
                                         <div>{quantity}</div>
                                         <Button onClick={() => {
                                             setQuantity(quantity + 1);
                                         }}> + </Button>
                                     </div>
                                 </div>):
-                                (<Button>Add to Cart</Button>)
+                                (<Button onClick={() => {
+                                    setQuantity(1);
+                                }}>Add to Cart</Button>)
                             }
                         </div>
                     </div>
