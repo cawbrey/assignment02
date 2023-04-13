@@ -17,37 +17,48 @@ export default function PaymentInformation() {
 
 
     function formValidation() {
+        if(fullName === "" ||
+            email === ""||
+            cardNumber === ""||
+            address1 === ""||
+            city === ""||
+            state === ""||
+            zipCode === ""){
+            return " ";
+        }
+
+
         let curRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-        if (!curRegex.test(fullName) && fullName !== "") {
+        if (!curRegex.test(fullName)) {
             return "Invalid Name detected";
         }
 
         curRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        if (!curRegex.test(email) && email !== "") {
+        if (!curRegex.test(email)) {
             return "Invalid email detected"
         }
 
         curRegex = /^\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}$/;
-        if (!curRegex.test(cardNumber) && cardNumber !== "") {
+        if (!curRegex.test(cardNumber)) {
             return "Invalid Card Number";
         }
 
         curRegex = /^\d+\s+([a-zA-Z]+\s+)*[a-zA-Z]+\.?\s+\w{2,}$/;
-        if (!curRegex.test(address1) && address1 !== "") {
+        if (!curRegex.test(address1)) {
             return "Invalid Address";
         }
 
         curRegex = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
-        if (!curRegex.test(city) && city !== "") {
+        if (!curRegex.test(city)) {
             return "Invalid City";
         }
 
-        if (!curRegex.test(state) && state !== "") {
+        if (!curRegex.test(state)) {
             return "Invalid State";
         }
 
         curRegex = /^\d{5}(?:[-\s]\d{4})?$/;
-        if (!curRegex.test(zipCode) && zipCode !== "") {
+        if (!curRegex.test(zipCode)) {
             return "Invalid Zip Code";
         }
 
@@ -61,7 +72,7 @@ export default function PaymentInformation() {
         }
 
         console.log("tried to change page")
-        changePage(Confirmation());
+        changePage((<Confirmation></Confirmation>));
     }
 
     return (<>

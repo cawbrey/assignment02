@@ -3,11 +3,9 @@ import {useContext} from "react";
 import {ShoppingCartContext} from "../context/ShoppingCartContext";
 import CartItem from "../components/CartItem";
 import PaymentInformation from "../components/PaymentInformation";
-import Confirmation from "../pages/Confirmation";
 
 export default function Cart() {
-    const {cart} = useContext(ShoppingCartContext);
-    const {changeCart} = useContext(ShoppingCartContext);
+    const {cart, changeCart} = useContext(ShoppingCartContext);
 
     function setQuantity(item, newQuantity) {
         const updatedCart = cart.map((cartItem) => {
